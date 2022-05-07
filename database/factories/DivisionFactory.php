@@ -21,7 +21,6 @@ class DivisionFactory extends Factory
             'level' => $this->faker->randomDigit(),
             'collaborator' =>$this->faker->randomDigit(),
             'embassador' => $this->faker->name(),
-            'sub_division_id' => null,
             'upper_division_id' => null,
         ];
     }

@@ -15,15 +15,13 @@ return new class extends Migration
     {
         Schema::create('divisions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('name', 45)->unique();
             $table->integer('level');
             $table->integer('collaborator');
             $table->string('embassador');
             $table->integer('upper_division_id')->nullable();
             $table->foreign('upper_division_id')->references('id')->on('divisions');
-            $table->integer('sub_division_id')->nullable();
-            $table->foreign('sub_division_id')->references('id')->on('divisions');
+            $table->timestamps();
         });
     }
 
