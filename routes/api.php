@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Controller\DivisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/divisions', [DivisionController::class, 'create']);
+Route::get('/divisions/$id', [DivisionController::class, 'store']);
+Route::put('/divisions/$id', [DivisionController::class, 'update']);
+Route::delete('/divisions/$id', [DivisionController::class, 'destroy']);
+Route::get('/divisions', [DivisionController::class, 'totalDivisions']);
+Route::get('/children-division', [DivisionController::class, 'SubDivisions']);

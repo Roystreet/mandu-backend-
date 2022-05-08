@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\division>
  */
@@ -21,7 +22,7 @@ class DivisionFactory extends Factory
             'level' => $this->faker->randomDigit(),
             'collaborator' =>$this->faker->randomDigit(),
             'embassador' => $this->faker->name(),
-            'upper_division_id' => null,
+            'upper_division_id' => $this->faker->randomDigitNotNull(),
         ];
     }
 }

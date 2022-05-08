@@ -17,7 +17,11 @@ class SubdivisionFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->unique->word(),
+            'level' => $this->faker->randomDigit(),
+            'collaborator' =>$this->faker->randomDigit(),
+            'embassador' => $this->faker->name(),
+            'upper_division_id' => 2//$this->faker->randomDigitNotNull(),
         ];
     }
 }

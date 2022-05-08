@@ -15,17 +15,16 @@ class Division extends Model
         'level',
         'collaborator',
         'embassador',
-        'sub_division_id'
     ];
     // service->sudivision()
-    public function subDivisions()
-    {
-        return $this->hasMany(Division::class, 'sub_division_id');
-    }
     // service->upperdivision()
     public function upperDivision()
     {
         return $this->hasMany(Division::class, 'upper_division_id');
+    }
+    
+    public function parent(){
+        return $this->belongsTo(Division::class, 'upper_division_id');
     }
 
 }

@@ -3,84 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\division;
-use App\Http\Requests\StoredivisionRequest;
-use App\Http\Requests\UpdatedivisionRequest;
+use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 class DivisionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function create( Request $request)
     {
-        //
+        return response()->json(["response"=>"hola"]) ; //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show(Request $request, $id)
     {
-        //
+        $division = division::find($id);
+        return response()->json(["response"=>"hola"]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoredivisionRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoredivisionRequest $request)
+    public function update(Request $request)
     {
-        //
+        return response()->json(["response"=>"hola"]) ;//
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\division  $division
-     * @return \Illuminate\Http\Response
-     */
-    public function show(division $division)
+   
+    public function destroy(Requests $request)
     {
-        //
+        return response()->json(["response"=>"hola"]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\division  $division
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(division $division)
-    {
-        //
+    
+    public function totalDivisions(Request $request){
+        return response()->json(["response"=>"hola"]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatedivisionRequest  $request
-     * @param  \App\Models\division  $division
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatedivisionRequest $request, division $division)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\division  $division
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(division $division)
-    {
-        //
+    public function subDivisions(Request $request){
+        return response()->json(["response"=>"hola"]);
     }
 }
