@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Controller\DivisionController;
+use App\Http\Controllers\DivisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +16,8 @@ use App\Controller\DivisionController;
 */
 
 Route::post('/divisions', [DivisionController::class, 'create']);
-Route::get('/divisions/$id', [DivisionController::class, 'store']);
-Route::put('/divisions/$id', [DivisionController::class, 'update']);
-Route::delete('/divisions/$id', [DivisionController::class, 'destroy']);
+Route::get('/divisions/{id}', [DivisionController::class, 'show']);
+Route::put('/divisions/{id}', [DivisionController::class, 'update']);
+Route::delete('/divisions/{id}', [DivisionController::class, 'destroy']);
 Route::get('/divisions', [DivisionController::class, 'totalDivisions']);
-Route::get('/children-division', [DivisionController::class, 'SubDivisions']);
+Route::get('/division-subdivisions/{id}', [DivisionController::class, 'subDivisions']);

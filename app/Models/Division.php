@@ -18,12 +18,12 @@ class Division extends Model
     ];
     // service->sudivision()
     // service->upperdivision()
-    public function upperDivision()
+    public function subDivision()
     {
         return $this->hasMany(Division::class, 'upper_division_id');
     }
     
-    public function parent(){
+    public function upperDivision(){
         return $this->belongsTo(Division::class, 'upper_division_id');
     }
 

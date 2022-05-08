@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\division;
+use App\Models\Division;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
@@ -10,30 +10,80 @@ class DivisionController extends Controller
 {
     public function create( Request $request)
     {
-        return response()->json(["response"=>"hola"]) ; //
+
+        
+        $division = new Division;
+        $division->name = $request->name;
+        $division->level = $request->level;
+        $division->collaborator = $request->collaborator;
+        $division->embassador = $request->embassador;
+        $division->upper_division_id = $request->upper_division_id;
+        $division->save();
+
+        return response()->json(["response"=>"created successfully"]) ; //
     }
 
-    public function show(Request $request, $id)
+    public function show(Request $request)
     {
-        $division = division::find($id);
-        return response()->json(["response"=>"hola"]);
+        $division = Division::find($request->id);
+        if(count((array)$division)>0){
+            $division->subDivision;
+            $division-> upperDivision;
+            return response()->json(["response"=>$division]) ; //
+        }else{
+            return response()->json(["response"=>"Not fount"]) ; //
+        }
     }
 
     public function update(Request $request)
     {
-        return response()->json(["response"=>"hola"]) ;//
+        $division = Division::find($request->id);
+        if(count((array)$division)>0){
+            
+          $division->update($request->all());
+            return response()->json(["response"=>"updated successfully"]) ;
+            
+        }else{
+            return response()->json(["response"=>"Not Found"]);
+        }
     }
 
-   
-    public function destroy(Requests $request)
+    public function destroy(Request $request)
+
     {
-        return response()->json(["response"=>"hola"]);
+        $division = Division::find($request->id);
+       if(count((array)$division) > 0){
+            $division->delete();
+            return response()->json(["response"=>"Delete Successfully"]) ;//
+        } else {
+            return response()->json(["response"=>"Not Found"]) ;//
+        }
     }
     
     public function totalDivisions(Request $request){
-        return response()->json(["response"=>"hola"]);
+        $division = Division::all();
+
+        $divisions= array();
+        foreach ($division as $div) {
+            $data= [
+                "id"=>$div->id,
+                "name"=>$div->name,
+                "level"=>$div->level,
+                "collaborator"=>$div->collaborator,
+                "embassador"=>$div->embassador,
+                "divisionSuperior"=>Division::find($div->upper_division_id),
+                "subDivisions"=>Division::find($div->id)->subDivision,
+            ];
+            array_push($divisions,$data);
+        }
+
+
+        return response()->json(["response"=>$divisions]);
     }
     public function subDivisions(Request $request){
-        return response()->json(["response"=>"hola"]);
+
+        $subDivision = Division::find($request->id)->subDivision;
+
+        return response()->json(["response"=>$subDivision]);
     }
 }
