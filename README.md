@@ -8,10 +8,16 @@ Todos los endpoints tiene al inicio la palabra api
 
 Ejemplo /api
 
-    -Get
+    -Get /divisions
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
+Obtenemos un listado de todas las divisiones
+-Get /divisions/{id}
+Obtenemos una division por su id
+-Get /division-subdivisions/{id}
+Obtenemos todas las subdivisiones de una division concreta
+-Post /divisions
+Creamos una nueva division
+-Put /divisions/{id}
+Actualiza una division existente
+-Delete/divisions/{id}
+Elimina una actualizacion existente
