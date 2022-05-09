@@ -11,13 +11,23 @@ Ejemplo /api
     -Get /divisions
 
 Obtenemos un listado de todas las divisiones
--Get /divisions/{id}
+
+    -Get /divisions/{id}
+
 Obtenemos una division por su id
--Get /division-subdivisions/{id}
+
+    -Get /division-subdivisions/{id}
+
 Obtenemos todas las subdivisiones de una division concreta
--Post /divisions
+
+    -Post /divisions
+
 Creamos una nueva division
--Put /divisions/{id}
+
+    -Put /divisions/{id}
+
 Actualiza una division existente
--Delete/divisions/{id}
+
+    -Delete/divisions/{id}
+
 Elimina una actualizacion existente
