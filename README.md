@@ -31,3 +31,20 @@ Actualiza una division existente
     -Delete/divisions/{id}
 
 Elimina una actualizacion existente
+
+##Test
+
+Para probar la api necesitas instalar las dependencias via composer con el comando
+
+    composer install
+
+una vez realizado ejecutar el comando
+
+    php artisan migrate:seed
+
+para realizar las migraciones y los seeders para llenar nuestra base de datos,
+por ultimo ejecutar el comando
+
+    php artisan serve
+
+para levantar nuestra aplicacion, y listo tenemos nuestra aplicacion funcionando Gracias por llegar aqui!
