@@ -66,13 +66,13 @@ class DivisionController extends Controller
         $divisions= array();
         foreach ($division as $div) {
             $data= [
-                "id"=>$div->id,
-                "name"=>$div->name,
-                "level"=>$div->level,
-                "collaborator"=>$div->collaborator,
-                "embassador"=>$div->embassador,
-                "divisionSuperior"=>Division::find($div->upper_division_id),
-                "subDivisions"=>Division::find($div->id)->subDivision,
+                "key"=>$div->id,
+                "Division"=>$div->name,
+                "Level"=>$div->level,
+                "Colaboradores"=>$div->collaborator,
+                "Embajadores"=>$div->embassador,
+                "DivisionSuperior"=>Division::find($div->upper_division_id),
+                "Subdivisions"=>Division::find($div->id)->subDivision,
             ];
             array_push($divisions,$data);
         }
